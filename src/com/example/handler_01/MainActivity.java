@@ -1,9 +1,11 @@
 package com.example.handler_01;
 
-import android.R.integer;
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.app.Activity;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,8 +47,16 @@ public class MainActivity extends Activity {
         
         imageView = (ImageView) findViewById(R.id.imageView);
         button = (Button)findViewById(R.id.button);
-        handler.postDelayed(myRunnable, 1000);
-        
+        handler.postDelayed(myRunnable, 2000);//5秒之后开始轮徇图片，更新UI
+        button.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent();
+				intent.setClass(MainActivity.this, HandlerMessageActivity.class);
+				startActivity(intent);
+			}
+		});
     }
     
     class MyRunnable implements Runnable {
@@ -54,7 +64,7 @@ public class MainActivity extends Activity {
 			index++;
 			index = index%6;
 			imageView.setImageResource(images[index]);
-			handler.postDelayed(myRunnable, 1000);
+			handler.postDelayed(myRunnable, 1000);//图片每隔1秒轮徇，延时操作（递归调用线程？）
 		}
 	}
 }

@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity 
+            android:name="com.example.handler_01.HandlerMessageActivity">
+        </activity>MyThreadActivity
+        <activity 
+            android:name="com.example.handler_01.MyThreadActivity">
+        </activity>
     </application>
 
 </manifest>
