@@ -58,8 +58,8 @@ broadcast，receivers等。自己创建的线程通过handler和主线程通信�
 
 ###7、如何实现一个与线程相关的Handler？
 
-class MyThread extends Thread{
-    	public Handler handler;
+class MyThread extends Thread {
+	public Handler handler;
     	
 		@Override
 		public void run() {
@@ -106,4 +106,4 @@ C++中，没有这种机制，一般通过加锁实现多线程的互斥。
 
 * ViewRootImpl是onResume()方法才会创建。所以onCreate()方法中要延迟才可以。
 
-handleResumeActivity()方法---》viewManager.addView()-->ViewRootImpl初始化。，关注viewParent-->ViewRootImpl是ViewParent的实现类
+* handleResumeActivity()方法---》viewManager.addView()-->ViewRootImpl初始化。关注viewParent-->ViewRootImpl是ViewParent的实现类
